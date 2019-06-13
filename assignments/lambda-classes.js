@@ -29,13 +29,13 @@ class Instructor extends Person {
   grade(Student, subject) {
     return `${Student} recieves a perfect score on ${subject}.`;
   }
-  ///only has a change of grade +-10 randomly
-  randomGradeTenDiff(Student) {
-    return Student + Math.floor(Math.random() * (1 + 10 - 30)) + 10;
-  }
+//   ///only has a change of grade +-10 randomly
+//   randomGradeTenDiff(Student) {
+//     return Student + Math.floor(Math.random() * (1 + 10 - 30)) + 10;
+//   }
 
   ///can change grade from 0 to 100 randomly
-  randomGrade0to100(Student) {
+  randomGrade (Student) {
     return Student + Math.floor(Math.random() * (1 + 0 - 100) + 20);
   }
 }
@@ -60,6 +60,15 @@ class Student extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun spring challenge on ${subject}`;
   }
+
+  graduate(Student) {
+      if (Student >= 70) {
+        return `Congratulations, you can Graduate!`;
+      }  else if (Student < 70) {
+        return `you need more time to study!`;
+      };
+   };
+
 }
 
 //////////////////////////grandchild of child(Instructor)
@@ -146,7 +155,7 @@ const seth = new Student({
   previousBackground: "Computer Technician",
   className: "Web21",
   favSubjects: ["Computer Science, History, Mythology"],
-  grade: 80 //Math.floor(Math.random() * Math.floor(100))
+  grade: 80
 });
 
 const nisa = new Student({
@@ -210,5 +219,8 @@ console.log(waterboy.catchPhrase);
 
 ///////STRETCH//////
 console.log(seth.grade);
-console.log(dan.randomGradeTenDiff(seth.grade));
-console.log(dan.randomGrade0to100(seth.grade));
+console.log(dan.randomGrade(seth.grade));
+
+
+console.log(seth.graduate(seth.grade));
+               
