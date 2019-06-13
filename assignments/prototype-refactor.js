@@ -1,5 +1,5 @@
 /* 
-
+g
 Prototype Refactor
 
 1. Copy and paste your code or the solution from yesterday
